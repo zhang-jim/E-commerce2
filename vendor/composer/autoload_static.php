@@ -152,6 +152,7 @@ class ComposerStaticInitca2bac1acd92042bdec0e15a7ff1ed6f
         'E' => 
         array (
             'Egulias\\EmailValidator\\' => 23,
+            'Ecpay\\Sdk\\' => 10,
         ),
         'D' => 
         array (
@@ -478,6 +479,10 @@ class ComposerStaticInitca2bac1acd92042bdec0e15a7ff1ed6f
         'Egulias\\EmailValidator\\' => 
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/src',
+        ),
+        'Ecpay\\Sdk\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ecpay/sdk/src',
         ),
         'Dotenv\\' => 
         array (
@@ -806,6 +811,43 @@ class ComposerStaticInitca2bac1acd92042bdec0e15a7ff1ed6f
         'Dotenv\\Util\\Regex' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Util/Regex.php',
         'Dotenv\\Util\\Str' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Util/Str.php',
         'Dotenv\\Validator' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Validator.php',
+        'Ecpay\\Sdk\\Abstracts\\AbstractAesResponse' => __DIR__ . '/..' . '/ecpay/sdk/src/Abstracts/AbstractAesResponse.php',
+        'Ecpay\\Sdk\\Abstracts\\AbstractDecryptedResponse' => __DIR__ . '/..' . '/ecpay/sdk/src/Abstracts/AbstractDecryptedResponse.php',
+        'Ecpay\\Sdk\\Abstracts\\AbstractFactory' => __DIR__ . '/..' . '/ecpay/sdk/src/Abstracts/AbstractFactory.php',
+        'Ecpay\\Sdk\\Abstracts\\AbstractResponse' => __DIR__ . '/..' . '/ecpay/sdk/src/Abstracts/AbstractResponse.php',
+        'Ecpay\\Sdk\\Abstracts\\AbstractVerifiedResponse' => __DIR__ . '/..' . '/ecpay/sdk/src/Abstracts/AbstractVerifiedResponse.php',
+        'Ecpay\\Sdk\\Exceptions\\RtnException' => __DIR__ . '/..' . '/ecpay/sdk/src/Exceptions/RtnException.php',
+        'Ecpay\\Sdk\\Exceptions\\TransException' => __DIR__ . '/..' . '/ecpay/sdk/src/Exceptions/TransException.php',
+        'Ecpay\\Sdk\\Factories\\Factory' => __DIR__ . '/..' . '/ecpay/sdk/src/Factories/Factory.php',
+        'Ecpay\\Sdk\\Interfaces\\Request\\RequestInterface' => __DIR__ . '/..' . '/ecpay/sdk/src/Interfaces/Request/RequestInterface.php',
+        'Ecpay\\Sdk\\Interfaces\\Response\\ResponseInterface' => __DIR__ . '/..' . '/ecpay/sdk/src/Interfaces/Response/ResponseInterface.php',
+        'Ecpay\\Sdk\\Interfaces\\Services\\HtmlInterface' => __DIR__ . '/..' . '/ecpay/sdk/src/Interfaces/Services/HtmlInterface.php',
+        'Ecpay\\Sdk\\Interfaces\\Services\\HttpClientInterface' => __DIR__ . '/..' . '/ecpay/sdk/src/Interfaces/Services/HttpClientInterface.php',
+        'Ecpay\\Sdk\\Interfaces\\Services\\Test\\TestInterface' => __DIR__ . '/..' . '/ecpay/sdk/src/Interfaces/Services/Test/TestInterface.php',
+        'Ecpay\\Sdk\\Request\\AesRequest' => __DIR__ . '/..' . '/ecpay/sdk/src/Request/AesRequest.php',
+        'Ecpay\\Sdk\\Request\\CheckMacValueRequest' => __DIR__ . '/..' . '/ecpay/sdk/src/Request/CheckMacValueRequest.php',
+        'Ecpay\\Sdk\\Request\\Request' => __DIR__ . '/..' . '/ecpay/sdk/src/Request/Request.php',
+        'Ecpay\\Sdk\\Response\\AesJsonResponse' => __DIR__ . '/..' . '/ecpay/sdk/src/Response/AesJsonResponse.php',
+        'Ecpay\\Sdk\\Response\\AesStrResponse' => __DIR__ . '/..' . '/ecpay/sdk/src/Response/AesStrResponse.php',
+        'Ecpay\\Sdk\\Response\\ArrayResponse' => __DIR__ . '/..' . '/ecpay/sdk/src/Response/ArrayResponse.php',
+        'Ecpay\\Sdk\\Response\\EncodedStrResponse' => __DIR__ . '/..' . '/ecpay/sdk/src/Response/EncodedStrResponse.php',
+        'Ecpay\\Sdk\\Response\\JsonResponse' => __DIR__ . '/..' . '/ecpay/sdk/src/Response/JsonResponse.php',
+        'Ecpay\\Sdk\\Response\\StrResponse' => __DIR__ . '/..' . '/ecpay/sdk/src/Response/StrResponse.php',
+        'Ecpay\\Sdk\\Response\\VerifiedArrayResponse' => __DIR__ . '/..' . '/ecpay/sdk/src/Response/VerifiedArrayResponse.php',
+        'Ecpay\\Sdk\\Response\\VerifiedEncodedStrResponse' => __DIR__ . '/..' . '/ecpay/sdk/src/Response/VerifiedEncodedStrResponse.php',
+        'Ecpay\\Sdk\\Services\\AesService' => __DIR__ . '/..' . '/ecpay/sdk/src/Services/AesService.php',
+        'Ecpay\\Sdk\\Services\\ArrayService' => __DIR__ . '/..' . '/ecpay/sdk/src/Services/ArrayService.php',
+        'Ecpay\\Sdk\\Services\\AutoSubmitFormService' => __DIR__ . '/..' . '/ecpay/sdk/src/Services/AutoSubmitFormService.php',
+        'Ecpay\\Sdk\\Services\\CheckMacValueService' => __DIR__ . '/..' . '/ecpay/sdk/src/Services/CheckMacValueService.php',
+        'Ecpay\\Sdk\\Services\\CurlService' => __DIR__ . '/..' . '/ecpay/sdk/src/Services/CurlService.php',
+        'Ecpay\\Sdk\\Services\\Helper' => __DIR__ . '/..' . '/ecpay/sdk/src/Services/Helper.php',
+        'Ecpay\\Sdk\\Services\\HtmlService' => __DIR__ . '/..' . '/ecpay/sdk/src/Services/HtmlService.php',
+        'Ecpay\\Sdk\\Services\\PostService' => __DIR__ . '/..' . '/ecpay/sdk/src/Services/PostService.php',
+        'Ecpay\\Sdk\\Services\\UrlService' => __DIR__ . '/..' . '/ecpay/sdk/src/Services/UrlService.php',
+        'Ecpay\\Sdk\\TestCase\\MultipleServiceTestCase' => __DIR__ . '/..' . '/ecpay/sdk/src/TestCase/MultipleServiceTestCase.php',
+        'Ecpay\\Sdk\\TestCase\\SingleServiceTestCase' => __DIR__ . '/..' . '/ecpay/sdk/src/TestCase/SingleServiceTestCase.php',
+        'Ecpay\\Sdk\\Traits\\HashInfo' => __DIR__ . '/..' . '/ecpay/sdk/src/Traits/HashInfo.php',
+        'Ecpay\\Sdk\\Traits\\StageInfo' => __DIR__ . '/..' . '/ecpay/sdk/src/Traits/StageInfo.php',
         'Egulias\\EmailValidator\\EmailLexer' => __DIR__ . '/..' . '/egulias/email-validator/src/EmailLexer.php',
         'Egulias\\EmailValidator\\EmailParser' => __DIR__ . '/..' . '/egulias/email-validator/src/EmailParser.php',
         'Egulias\\EmailValidator\\EmailValidator' => __DIR__ . '/..' . '/egulias/email-validator/src/EmailValidator.php',
