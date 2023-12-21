@@ -1,3 +1,22 @@
+<script>
+    function deleteCategory(url) {
+        if (confirm('您確定要刪除該產品嗎？')) {
+            // 使用 XMLHttpRequest 或者其他適當的方式發送 DELETE 請求
+            var xhr = new XMLHttpRequest();
+            xhr.open('DELETE', url, true);
+            xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}'); // 如果你的應用使用 CSRF，請確保將 CSRF token 放在請求頭中
+            xhr.onload = function() {
+                // 處理請求完成後的邏輯
+                if (xhr.status === 200) {
+                    // 成功刪除
+                } else {
+                    // 處理錯誤情況
+                }
+            };
+            xhr.send();
+        }
+    }
+</script>
 <x-app-layout>
     <div class="w-4/5 mx-auto mt-5 flex justify-between">
         <div class="w-4/12">
@@ -68,8 +87,8 @@
                                     <td class="p-3 border-b text-gray-500">{{ $category->description }}</td>
                                     <td class="p-3 border-b text-gray-500">{{ $category->parent_id }}</td>
                                     <td class="p-3 border-b">
-                                        <a href="{{ url('category/' . $category->id) }}" class="text-green-500 mr-2">編輯</a>
-                                        <a href="" onclick="" class="text-red-500">刪除</a>
+                                        <a href="{{ url('category/' . $category->id .'/edit') }}" class="text-green-500 mr-2">編輯</a>
+                                        <a href="" onclick="deleteCategory('{{ url('category/' . $category->id) }}')" class="text-red-500">刪除</a>
                                     </td>
                                 </tr>
                             @endforeach

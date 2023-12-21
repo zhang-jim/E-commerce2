@@ -67,6 +67,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        // 重定向到產品管理頁
+        return redirect('category');
     }
 }

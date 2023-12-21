@@ -32,14 +32,12 @@
                                 class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
                                 <input type="checkbox" name="is_published" id="is_published"
                                     class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
-                                    {{ $product->is_published ? 'checked' : '' }}>
+                                    @if ($product->is_published) checked @endif>
                                 <label for="is_published"
                                     class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
                             </div>
-                            <label for="is_published" class="text-gray-700 text-sm">Toggle</label>
                         </div>
                         <!-- End Toggleable Checkbox -->
-
 
                         <div class="mb-4">
                             <label for="description" class="block text-gray-700 text-sm font-bold mb-2">商品描述</label>

@@ -26,18 +26,23 @@ class ProductController extends Controller
     public function store(Request $request, Product $product)
     {
         // 數據驗證
-        $product->name = $request->input('name');
-        $product->description = $request->input('description');
-        $product->price = $request->input('price');
-        $product->inventory = $request->input('inventory');
-
-        if ($request->hasfile('image')) {
-            $file = $request->file('image');
-            $extention = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extention;
-            $file->move('storage/product_images/', $filename);
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:1000',
+            'price' => 'required|numeric',
+            'inventory' => 'required|integer',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+        // 填充模型屬性
+        $product->fill($validatedData);
+        // 處理圖片上傳
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('product_images', $filename, 'public');
             $product->image = $filename;
         }
+        // 儲存商品
         $product->save();
         // 回傳新增狀態(成功/失敗)
         return redirect()->back()->with('status', '商品新增成功');
@@ -59,22 +64,30 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         // 數據驗證
-        $product->name = $request->input('name');
-        $product->description = $request->input('description');
-        $product->price = $request->input('price');
-        $product->inventory = $request->input('inventory');
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string|max:1000',
+            'price' => 'required|numeric',
+            'inventory' => 'required|integer',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+        // 填充模型屬性
+        $product->fill($validatedData);
+
+        // 是否上架
         $product->is_published = $request->has('is_published');
 
+        // 處理新圖片上傳
         if ($request->hasfile('image')) {
-            $destination = 'storage/product_images/' . $product->image;
+            $oldImagePath = 'storage/product_images/' . $product->image;
 
-            if (File::exists($destination)) {
-                File::delete($destination);
+            // 刪除舊圖片
+            if (File::exists($oldImagePath)) {
+                File::delete($oldImagePath);
             }
-            $file = $request->file('image');
-            $extention = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extention;
-            $file->move('storage/product_images/', $filename);
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('product_images', $filename, 'public');
             $product->image = $filename;
         }
         $product->update();
